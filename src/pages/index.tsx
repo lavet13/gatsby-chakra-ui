@@ -1,5 +1,5 @@
-import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import * as React from 'react';
+import type { HeadFC, PageProps } from 'gatsby';
 import {
   Box,
   Center,
@@ -8,46 +8,44 @@ import {
   List,
   ListItem,
   Text,
-  useColorMode,
   Code,
-  Button,
   calc,
   CodeProps,
   Link as ChakraLink,
   Divider,
   Flex,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';
+import ThemeToggle from '../components/toggle-theme';
 
-const $lineHeight = "1.4375rem";
+const $lineHeight = '1.4375rem';
 
 const PurpleCode = (props: CodeProps) => (
-  <Code colorScheme="purple" {...props} />
+  <Code colorScheme='purple' {...props} />
 );
 
 const IndexPage: React.FC<PageProps> = () => {
-  const { toggleColorMode } = useColorMode();
   return (
-    <Box as="main">
-      <Center height="100vh" textAlign="center">
-        <Flex gap={$lineHeight} flexDir="column">
+    <Box as='main'>
+      <Center height='100vh' textAlign='center'>
+        <Flex gap={$lineHeight} flexDir='column'>
           <Heading
-            as="h1"
-            size="4xl"
-            maxW="16ch"
+            as='h1'
+            size='4xl'
+            maxW='16ch'
             lineHeight={calc($lineHeight).multiply(4).toString()}
           >
             <Highlight
-              query="With Speed"
-              styles={{ color: "purple.600", _dark: { color: "purple.400" } }}
+              query='With Speed'
+              styles={{ color: 'purple.600', _dark: { color: 'purple.400' } }}
             >
               Get Started Using Gatsby With Speed
             </Highlight>
           </Heading>
-          <Text fontSize="2xl" mb={$lineHeight}>
-            Thank you for using the Gatsby Starter for{" "}
-            <PurpleCode fontSize="initial">Chakra UI</PurpleCode>!
+          <Text fontSize='2xl' mb={$lineHeight}>
+            Thank you for using the Gatsby Starter for{' '}
+            <PurpleCode fontSize='initial'>Chakra UI</PurpleCode>!
           </Text>
-          <List textAlign="start" spacing={4}>
+          <List textAlign='start' spacing={4}>
             <ListItem>
               ⚡Create accessible Gatsby apps with speed using Chakra UI
             </ListItem>
@@ -57,29 +55,23 @@ const IndexPage: React.FC<PageProps> = () => {
             </ListItem>
           </List>
           <Text>
-            To generate the theming token types, run{" "}
-            <PurpleCode>npm run theme</PurpleCode> or{" "}
+            To generate the theming token types, run{' '}
+            <PurpleCode>npm run theme</PurpleCode> or{' '}
             <PurpleCode>npm run theme:watch</PurpleCode>
           </Text>
           <Text>
-            Head over to{" "}
+            Head over to{' '}
             <ChakraLink
-              href="https://chakra-ui.com"
-              color="blue.500"
-              fontWeight="bold"
+              href='https://chakra-ui.com'
+              color='blue.500'
+              fontWeight='bold'
             >
               ChakraUI.com
-            </ChakraLink>{" "}
+            </ChakraLink>{' '}
             to get started using the components and creating your theme!
           </Text>
           <Divider />
-          <Button
-            onClick={toggleColorMode}
-            colorScheme="blue"
-            alignSelf="center"
-          >
-            Toggle Color Mode
-          </Button>
+          <ThemeToggle />
         </Flex>
       </Center>
     </Box>
