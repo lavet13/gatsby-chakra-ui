@@ -9,8 +9,8 @@ const ThemeToggle = () => {
 
   return (
     <IconButton
+      variant={'toggleMode'}
       icon={<ToggleIcon />}
-      variant={'ghost'}
       aria-label='Toggle Theme'
       onClick={toggleMode}
     />

@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraBaseProvider, ChakraProvider } from '@chakra-ui/react';
 import React, { FC } from 'react';
 import Layout from '../../components/layout';
 import { WrapPageElementProps } from '../../common/types/types';
