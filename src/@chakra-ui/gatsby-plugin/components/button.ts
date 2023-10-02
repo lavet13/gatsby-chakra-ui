@@ -1,4 +1,5 @@
-import { defineStyleConfig } from '@chakra-ui/react';
+import { StyleFunctionProps, defineStyleConfig } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
 
 export default defineStyleConfig({
   baseStyle: {
@@ -22,34 +23,26 @@ export default defineStyleConfig({
   },
 
   variants: {
-    outline: {
-      border: '2px solid',
-      borderColor: 'purple.500',
-      color: 'purple.500',
+    toggleMode: props => {
+      return {
+        borderRadius: props.theme.radii.md,
+        bg: mode('blackAlpha.50', 'whiteAlpha.50')(props),
+        color: mode(
+          `${props.colorScheme}.900`,
+          `${props.colorScheme}.50`
+        )(props),
+        _hover: {
+          bg: mode('blackAlpha.100', 'whiteAlpha.100')(props),
+        },
+        _active: {
+          bg: mode('blackAlpha.200', 'whiteAlpha.200')(props),
+        },
+      };
     },
-
-    solid: {
-      bg: 'purple.500',
-      color: 'white',
-    },
-
-    toggleMode: ({ colorMode, theme: { radii } }) => ({
-      borderRadius: radii.full,
-      bg: colorMode === 'dark' ? 'whiteAlpha.50' : 'blackAlpha.50',
-      color: colorMode === 'dark' ? 'purple.100' : 'black.500',
-
-      _hover: {
-        bg: colorMode === 'dark' ? 'whiteAlpha.100' : 'blackAlpha.100',
-      },
-
-      _active: {
-        bg: colorMode === 'dark' ? 'whiteAlpha.200' : 'blackAlpha.200',
-      },
-    }),
   },
 
   defaultProps: {
     size: 'md',
-    variant: 'outline',
+    variant: 'toggleMode',
   },
 });

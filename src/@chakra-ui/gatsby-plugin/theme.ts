@@ -8,7 +8,7 @@ const config: ThemeConfig = {
   useSystemColorMode: true,
 };
 
-const theme = {
+export default extendTheme({
   config,
   components: {
     Button,
@@ -17,11 +17,9 @@ const theme = {
   semanticTokens: {
     colors: {
       headerText: {
-        default: 'purple.900',
-        _dark: 'gray.100',
+        default: 'black',
+        _dark: 'white',
       },
     },
   },
-};
-
-export default extendTheme(theme);
+});

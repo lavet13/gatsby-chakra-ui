@@ -12,15 +12,7 @@ const config: GatsbyConfig = {
   // https://chakra-ui.com/getting-started/gatsby-guide
   graphqlTypegen: true,
 
-  plugins: [
-    '@chakra-ui/gatsby-plugin',
-    {
-      resolve: 'gatsby-plugin-graphql-codegen',
-      options: {
-        codegen: false,
-      },
-    },
-  ],
+  plugins: ['@chakra-ui/gatsby-plugin'],
 };
 
 export default config;
