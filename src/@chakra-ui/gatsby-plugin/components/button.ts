@@ -1,4 +1,4 @@
-import { StyleFunctionProps, defineStyleConfig } from '@chakra-ui/react';
+import { Theme, defineStyleConfig, theme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 
 export default defineStyleConfig({
@@ -25,17 +25,17 @@ export default defineStyleConfig({
   variants: {
     toggleMode: props => {
       return {
-        borderRadius: props.theme.radii.md,
-        bg: mode('blackAlpha.50', 'whiteAlpha.50')(props),
-        color: mode(
-          `${props.colorScheme}.900`,
-          `${props.colorScheme}.50`
-        )(props),
+        borderRadius: theme.radii.md,
+
+        bg: 'whiteAlpha.50',
+        color: mode('yellow.100', 'purple.50')(props),
+
         _hover: {
-          bg: mode('blackAlpha.100', 'whiteAlpha.100')(props),
+          bg: 'whiteAlpha.100',
         },
+
         _active: {
-          bg: mode('blackAlpha.200', 'whiteAlpha.200')(props),
+          bg: 'whiteAlpha.200',
         },
       };
     },

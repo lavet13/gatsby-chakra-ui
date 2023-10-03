@@ -8,7 +8,7 @@ import {
   Text,
   Button,
 } from '@chakra-ui/react';
-import Seo from '../components/seo';
+import Seo from '../components/seo.component';
 
 const NotFoundPage: React.FC<PageProps> = () => {
   return (

@@ -19,7 +19,7 @@ export default defineStyleConfig({
     alignItems: 'center',
     justifyContent: 'space-between',
     color: mode('purple.500', 'purple.200')(props),
-    bg: mode('purple.100', 'purple.500')(props),
+    bg: mode('purple.400', 'purple.500')(props),
   }),
 });
 
