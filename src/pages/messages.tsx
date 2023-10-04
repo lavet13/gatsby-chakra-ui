@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import Seo from '../components/seo.component';
 import { useQuery, gql } from '@apollo/client';
 
-const GET_MESSAGES = gql`
+export const GET_MESSAGES = gql`
   query GetMessagesQuery {
     messages {
       edges {
