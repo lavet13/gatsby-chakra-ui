@@ -1,7 +1,7 @@
-import { Theme, defineStyleConfig, theme } from '@chakra-ui/react';
+import { ComponentStyleConfig, theme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 
-export default defineStyleConfig({
+const Button: ComponentStyleConfig = {
   baseStyle: {
     fontWeight: 'bold',
     textTransform: 'uppercase',
@@ -45,4 +45,6 @@ export default defineStyleConfig({
     size: 'md',
     variant: 'toggleMode',
   },
-});
+};
+
+export default Button;

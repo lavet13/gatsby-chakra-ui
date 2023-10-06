@@ -1,7 +1,5 @@
 import { defineStyle } from '@chakra-ui/react';
 
-import { mode } from '@chakra-ui/theme-tools';
-
 const styles = {
   global: defineStyle(props => ({
     '.active-link': {

@@ -1,6 +1,6 @@
-import { theme, defineStyleConfig } from '@chakra-ui/react';
+import { theme, ComponentStyleConfig } from '@chakra-ui/react';
 
-export default defineStyleConfig({
+const Link: ComponentStyleConfig = {
   baseStyle: {
     display: 'flex',
     alignItems: 'center',
@@ -19,4 +19,6 @@ export default defineStyleConfig({
 
     borderRadius: theme.radii.md,
   },
-});
+};
+
+export default Link;
