@@ -26,7 +26,9 @@ const IndexPage: React.FC<PageProps> = () => {
           constrained ones and different styles for both containers.
         </Text>
       </Container>
+
       <Divider />
+
       <MultiContainer>
         <Heading as='h2'>No Variant / No Color Scheme</Heading>
         <Text sx={{ mt: 3, mb: 3 }}>
@@ -34,6 +36,7 @@ const IndexPage: React.FC<PageProps> = () => {
           is also not set.
         </Text>
       </MultiContainer>
+
       <MultiContainer variant='solid'>
         <Heading as='h2'>"Solid" Variant / Default Color Scheme</Heading>
         <Text sx={{ mt: 3, mb: 3 }}>
@@ -41,6 +44,7 @@ const IndexPage: React.FC<PageProps> = () => {
           color scheme "gray". The size is not set.
         </Text>
       </MultiContainer>
+
       <MultiContainer variant='solid' colorScheme='purple'>
         <Heading as='h2'>"Solid" Variant / "Purple" Color Scheme</Heading>
         <Text sx={{ mt: 3, mb: 3 }}>
@@ -48,6 +52,7 @@ const IndexPage: React.FC<PageProps> = () => {
           color scheme. The size is not set.
         </Text>
       </MultiContainer>
+
       <MultiContainer variant='ghost' colorScheme='blue'>
         <Heading as='h2'>"Ghost" Variant / "Blue" Color Scheme</Heading>
         <Text sx={{ mt: 3, mb: 3 }}>
@@ -55,6 +60,7 @@ const IndexPage: React.FC<PageProps> = () => {
           color scheme. The size is not set.
         </Text>
       </MultiContainer>
+
       <MultiContainer variant='gradient' colorScheme='orange'>
         <Heading as='h2'>"Gradient" Variant / "Orange" Color Scheme</Heading>
         <Text sx={{ mt: 3, mb: 3 }}>
@@ -62,6 +68,7 @@ const IndexPage: React.FC<PageProps> = () => {
           "Orange" color scheme. The size is not set.
         </Text>
       </MultiContainer>
+
       <MultiContainer size='prose'>
         <Heading as='h2'>No Variant / No Color Scheme / "Prose" Size</Heading>
         <Text sx={{ mt: 3, mb: 3 }}>
@@ -69,6 +76,7 @@ const IndexPage: React.FC<PageProps> = () => {
           is set to "prose".
         </Text>
       </MultiContainer>
+
       <MultiContainer variant='ghost' size='3/4'>
         <Heading as='h2'>
           "Ghost" Variant / No Color Scheme / "3/4" Size

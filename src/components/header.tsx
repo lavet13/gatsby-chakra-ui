@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { useStyleConfig, Box, BoxProps } from '@chakra-ui/react';
+import { Box, BoxProps, useMultiStyleConfig } from '@chakra-ui/react';
 
 export interface IHeaderProps extends BoxProps {
   variant?: string;
@@ -9,9 +9,13 @@ export interface IHeaderProps extends BoxProps {
 }
 
 export const Header: FC<IHeaderProps> = props => {
-  const { size, variant, ...rest } = props;
+  const { size, variant, colorScheme, children, ...rest } = props;
 
-  const styles = useStyleConfig('Header', { size, variant });
+  const styles = useMultiStyleConfig('Header', { size, variant, colorScheme });
 
-  return <Box as='header' __css={styles} {...rest} />;
+  return (
+    <Box as='header' __css={{ ...styles.outer }} {...rest}>
+      <Box sx={{ ...styles.inner }}>{children}</Box>
+    </Box>
+  );
 };

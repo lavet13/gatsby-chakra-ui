@@ -1,14 +1,22 @@
 import { ComponentStyleConfig } from '@chakra-ui/react';
 import InnerContainerStyles from './container';
-import { percentageWidths } from '../utils';
+import {
+  percentageWidths,
+  variantSolid,
+  variantGhost,
+  variantGhostOuter,
+  variantGradient,
+} from '../utils';
 
 const CustomContainer: ComponentStyleConfig = {
   parts: ['outer', 'inner'],
+
   baseStyle: {
     outer: {
       w: '100%',
       margin: 0,
     },
+
     inner: {
       ...InnerContainerStyles.baseStyle,
     },
@@ -16,18 +24,20 @@ const CustomContainer: ComponentStyleConfig = {
 
   variants: {
     solid: props => ({
-      outer: {},
+      outer: variantSolid(props),
     }),
 
     ghost: props => ({
       outer: {
+        ...variantGhostOuter(props),
         py: [8, 10],
       },
-      inner: {},
+
+      inner: variantGhost(props),
     }),
 
     gradient: props => ({
-      outer: {},
+      outer: variantGradient(props),
     }),
   },
 
