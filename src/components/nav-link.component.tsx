@@ -7,6 +7,7 @@ type NavLinkProps = GatsbyLinkProps<any> & LinkProps;
 const NavLink: FC<NavLinkProps> = ({
   to,
   children,
+  colorScheme = 'green',
   partiallyActive,
   ...rest
 }) => {
@@ -14,7 +15,7 @@ const NavLink: FC<NavLinkProps> = ({
 
   return (
     <Link
-      colorScheme='green'
+      colorScheme={colorScheme}
       as={GatsbyLink}
       {...(isActive ? { variant: 'active' } : {})}
       to={to}

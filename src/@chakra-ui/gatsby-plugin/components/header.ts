@@ -8,7 +8,6 @@ const Header: ComponentStyleConfig = {
 
   baseStyle: props => {
     const { colorScheme: c } = props;
-    console.log({ c });
 
     return {
       outer: {
@@ -16,8 +15,8 @@ const Header: ComponentStyleConfig = {
 
         bg: mode(`${c}.500`, `${c}.200`)(props),
         color: mode(`${c}.100`, `gray.800`)(props),
-        borderTopRightRadius: 'xl',
-        borderBottomRightRadius: 'xl',
+        // borderTopRightRadius: 'xl',
+        // borderBottomRightRadius: 'xl',
         height: '100vh',
       },
 
