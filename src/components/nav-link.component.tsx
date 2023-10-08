@@ -10,8 +10,16 @@ const NavLink: FC<NavLinkProps> = ({
   partiallyActive,
   ...rest
 }) => {
+  const isActive = location.pathname === to;
+
   return (
-    <Link as={GatsbyLink} activeClassName={'active-link'} to={to} {...rest}>
+    <Link
+      colorScheme='green'
+      as={GatsbyLink}
+      {...(isActive ? { variant: 'active' } : {})}
+      to={to}
+      {...rest}
+    >
       {children}
     </Link>
   );

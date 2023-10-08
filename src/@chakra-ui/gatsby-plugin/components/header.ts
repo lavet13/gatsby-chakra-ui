@@ -6,26 +6,37 @@ export const MIN_WIDTH = `5rem`;
 const Header: ComponentStyleConfig = {
   parts: ['outer', 'inner'],
 
-  baseStyle: props => ({
-    outer: {
-      position: 'fixed',
+  baseStyle: props => {
+    const { colorScheme: c } = props;
+    console.log({ c });
 
-      color: mode('purple.500', 'purple.200')(props),
-      bg: mode('purple.400', 'purple.500')(props),
-      height: '100vh',
-    },
+    return {
+      outer: {
+        position: 'fixed',
 
-    inner: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'space-between',
+        bg: mode(`${c}.500`, `${c}.200`)(props),
+        color: mode(`${c}.100`, `gray.800`)(props),
+        borderTopRightRadius: 'xl',
+        borderBottomRightRadius: 'xl',
+        height: '100vh',
+      },
 
-      height: '100%',
-      minW: MIN_WIDTH,
-      py: 2,
-    },
-  }),
+      inner: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+
+        height: '100%',
+        minW: MIN_WIDTH,
+        py: 2,
+      },
+    };
+  },
+
+  defaultProps: {
+    colorScheme: 'gray',
+  },
 };
 
 export default Header;

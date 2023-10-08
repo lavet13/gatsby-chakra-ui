@@ -1,5 +1,6 @@
 import { ComponentStyleConfig, theme } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
+import { variantToggleMode } from '../utils';
 
 const Button: ComponentStyleConfig = {
   baseStyle: {
@@ -23,22 +24,7 @@ const Button: ComponentStyleConfig = {
   },
 
   variants: {
-    toggleMode: props => {
-      return {
-        borderRadius: theme.radii.md,
-
-        bg: 'whiteAlpha.50',
-        color: mode('yellow.100', 'purple.50')(props),
-
-        _hover: {
-          bg: 'whiteAlpha.100',
-        },
-
-        _active: {
-          bg: 'whiteAlpha.200',
-        },
-      };
-    },
+    toggleMode: props => variantToggleMode(props),
   },
 
   defaultProps: {

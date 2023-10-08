@@ -1,9 +1,6 @@
-import {
-  mode,
-  transparentize,
-  getColor,
-  StyleFunctionProps,
-} from '@chakra-ui/theme-tools';
+import { mode, transparentize, getColor } from '@chakra-ui/theme-tools';
+
+import { SystemStyleFunction } from '@chakra-ui/react';
 
 type AccessibleColor = {
   bg?: string;
@@ -22,7 +19,7 @@ export const accessibleColorMap: { [key: string]: AccessibleColor } = {
   },
 };
 
-export const variantSolid = (props: StyleFunctionProps) => {
+export const variantSolid: SystemStyleFunction = props => {
   const { colorScheme: c } = props;
 
   if (!c) {
@@ -43,7 +40,7 @@ export const variantSolid = (props: StyleFunctionProps) => {
   };
 };
 
-export const variantGhost = (props: StyleFunctionProps) => {
+export const variantGhost: SystemStyleFunction = props => {
   const { colorScheme: c, theme } = props;
 
   if (c === 'gray') {
@@ -62,7 +59,7 @@ export const variantGhost = (props: StyleFunctionProps) => {
   };
 };
 
-export const variantGhostOuter = (props: StyleFunctionProps) => {
+export const variantGhostOuter: SystemStyleFunction = props => {
   const { colorScheme: c } = props;
 
   if (c === 'gray') {
@@ -78,7 +75,7 @@ export const variantGhostOuter = (props: StyleFunctionProps) => {
   };
 };
 
-export const variantGradient = (props: StyleFunctionProps) => {
+export const variantGradient: SystemStyleFunction = props => {
   const { colorScheme: c, colorMode, theme } = props;
   const isDarkMode = colorMode === 'dark';
 
@@ -96,6 +93,60 @@ export const variantGradient = (props: StyleFunctionProps) => {
 
   return {
     bg: `linear-gradient(0deg, ${bottomColor} 0%, ${topColor} 100%)`,
+  };
+};
+
+export const variantActive: SystemStyleFunction = props => {
+  const { colorScheme: c, theme } = props;
+
+  const lightBg = transparentize(`${c}.200`, 0.15)(theme);
+  const darkBg = transparentize(`${c}.900`, 0.15)(theme);
+
+  const lightHoverBg = transparentize(`${c}.200`, 0.25)(theme);
+  const darkHoverBg = transparentize(`${c}.700`, 0.25)(theme);
+
+  const lightActiveBg = transparentize(`${c}.200`, 0.3)(theme);
+  const darkActiveBg = transparentize(`${c}.700`, 0.3)(theme);
+
+  return {
+    bg: mode(lightBg, darkBg)(props),
+    color: mode(`${c}.50`, `${c}.800`)(props),
+
+    _hover: {
+      bg: mode(lightHoverBg, darkHoverBg)(props),
+    },
+
+    _active: {
+      bg: mode(lightActiveBg, darkActiveBg)(props),
+    },
+  };
+};
+
+export const variantToggleMode: SystemStyleFunction = props => {
+  const { theme, colorScheme: c } = props;
+
+  const lightBg = transparentize(`${c}.200`, 0.15)(theme);
+  const darkBg = transparentize(`${c}.900`, 0.15)(theme);
+
+  const lightHoverBg = transparentize(`${c}.200`, 0.25)(theme);
+  const darkHoverBg = transparentize(`${c}.700`, 0.25)(theme);
+
+  const lightActiveBg = transparentize(`${c}.200`, 0.3)(theme);
+  const darkActiveBg = transparentize(`${c}.700`, 0.3)(theme);
+
+  return {
+    borderRadius: theme.radii.md,
+
+    bg: mode(lightBg, darkBg)(props),
+    color: mode(`${c}.50`, `${c}.800`)(props),
+
+    _hover: {
+      bg: mode(lightHoverBg, darkHoverBg)(props),
+    },
+
+    _active: {
+      bg: mode(lightActiveBg, darkActiveBg)(props),
+    },
   };
 };
 

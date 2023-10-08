@@ -11,19 +11,19 @@ import NavLink from './nav-link.component';
 const Layout: FC<WrapPageElementProps> = ({ children }) => {
   return (
     <>
-      <Header color='headerText'>
+      <Header colorScheme='green'>
         <Box>
           <NavLink to='/'>
             <HamburgerIcon boxSize='5' />
           </NavLink>
         </Box>
         <Box>
-          <NavLink to='/messages'>
+          <NavLink to='/messages/'>
             <ChatIcon boxSize='4' />
           </NavLink>
         </Box>
         <Box>
-          <ThemeToggle />
+          <ThemeToggle colorScheme='green' />
         </Box>
       </Header>
       <Flex>

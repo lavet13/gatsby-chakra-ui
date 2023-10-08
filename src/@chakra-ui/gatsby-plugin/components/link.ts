@@ -1,23 +1,43 @@
-import { theme, ComponentStyleConfig } from '@chakra-ui/react';
+import { ComponentStyleConfig } from '@chakra-ui/react';
+import { mode, transparentize } from '@chakra-ui/theme-tools';
+import { variantActive } from '../utils';
 
 const Link: ComponentStyleConfig = {
-  baseStyle: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+  baseStyle: props => {
+    const { colorScheme: c, theme } = props;
 
-    px: 3,
-    py: 3,
+    const lightHoverBg = transparentize(`${c}.200`, 0.25)(theme);
+    const darkHoverBg = transparentize(`${c}.700`, 0.25)(theme);
 
-    _hover: {
-      bg: 'whiteAlpha.100',
-    },
+    const lightActiveBg = transparentize(`${c}.200`, 0.3)(theme);
+    const darkActiveBg = transparentize(`${c}.700`, 0.3)(theme);
 
-    _active: {
-      bg: 'whiteAlpha.200',
-    },
+    return {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: theme.radii.md,
+      color: mode(`${c}.100`, `${c}.800`)(props),
 
-    borderRadius: theme.radii.md,
+      px: 3,
+      py: 3,
+
+      _hover: {
+        bg: mode(lightHoverBg, darkHoverBg)(props),
+      },
+
+      _active: {
+        bg: mode(lightActiveBg, darkActiveBg)(props),
+      },
+    };
+  },
+
+  variants: {
+    active: props => variantActive(props),
+  },
+
+  defaultProps: {
+    colorScheme: 'gray',
   },
 };
 
